@@ -1,0 +1,5 @@
+public class ServerProxy implements IGuiHandler{
+
+public void generateAmaterasuParticles(Entity theEntity) {}
+
+}
