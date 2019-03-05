@@ -1,0 +1,22 @@
+public class ClientProxy extends ServerProxy{
+
+@Override
+	public void generateAmaterasuParticles(Entity theEntity)
+	{
+	    double motionX = theEntity.worldObj.rand.nextGaussian() * 1D;
+	    double motionY = theEntity.worldObj.rand.nextGaussian() * 1D;
+	    double motionZ = theEntity.worldObj.rand.nextGaussian() * 1D;
+	    EntityFX AmaterasuParticle = new AmaterasuParticle(
+	          theEntity.worldObj, 
+	          theEntity.posX + theEntity.worldObj.rand.nextFloat() * theEntity.width 
+	                * 2.0F - theEntity.width, 
+	          theEntity.posY + theEntity.worldObj.rand.nextFloat() 
+	                * (theEntity.height - 2.2), 
+	          theEntity.posZ + theEntity.worldObj.rand.nextFloat() * theEntity.width 
+	                * 2.0F - theEntity.width, 
+	          motionX, 
+	          motionY, 
+	          motionZ);
+	     Minecraft.getMinecraft().effectRenderer.addEffect(AmaterasuParticle);        
+	}
+}
