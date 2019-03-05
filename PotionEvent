@@ -1,0 +1,23 @@
+public class NinjaPotionEvent {
+
+	@SubscribeEvent
+	public void onEntityUpdate(LivingUpdateEvent event)
+	{
+		if(event.entityLiving.isPotionActive(AlcoholMod.Amaterasu))
+		{
+			if(event.entityLiving.worldObj.isRemote)
+			{
+				AlcoholMod.proxy.generateAmaterasuParticles(event.entityLiving);
+			}
+			if(event.entityLiving.getActivePotionEffect(AlcoholMod.Amaterasu).getDuration()==0)
+			{
+				event.entityLiving.removePotionEffect(AlcoholMod.Amaterasu.id);
+				return;
+			}
+			else if(event.entityLiving.worldObj.rand.nextInt(50)==0)
+			{
+				event.entityLiving.attackEntityFrom(DamageSource.generic, 2);
+			}
+		}
+	}
+}
