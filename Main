@@ -1,5 +1,11 @@
+public class AlcoholMod 
+{
+@SidedProxy(clientSide="alcoholmod.Mathioks.proxys.ClientProxy", serverSide="alcoholmod.Mathioks.proxys.ServerProxy")
+	public static ServerProxy proxy;
+
 @EventHandler
 	public void init(FMLInitializationEvent event)
 	{
 		MinecraftForge.EVENT_BUS.register(new NinjaPotionEvent());
   }
+}
